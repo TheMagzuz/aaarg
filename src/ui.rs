@@ -3,7 +3,8 @@ use rodio::{Sink, OutputStreamHandle, OutputStream};
 use eframe::{egui, epi};
 use tinyfiledialogs::{open_file_dialog, save_file_dialog};
 
-use crate::audio::{AliasingParams, self};
+use libaaarg::AliasingParams;
+use crate::audio;
 
 pub fn run() {
     let app = MainApp::default();
@@ -20,13 +21,14 @@ struct MainApp {
     export_file: String,
     finished_writing_receiver: Option<Receiver<()>>,
     factor: usize,
+    factor_variation: usize,
     target_duration_secs: f32,
 }
 
 impl MainApp {
 
     fn get_aliasing_params(&self) -> AliasingParams {
-        AliasingParams::from_secs(self.target_duration_secs, self.factor)
+        AliasingParams::from_secs(self.target_duration_secs, self.factor, self.factor_variation)
     }
 
     fn show_file_window(&mut self, ctx: &egui::Context) {
@@ -73,6 +75,10 @@ impl MainApp {
             ui.horizontal(|ui| {
                 ui.label("Aliasing factor:");
                 ui.add(egui::Slider::new(&mut self.factor, 1..=1000));
+            });
+            ui.horizontal(|ui| {
+                ui.label("Factor variation:");
+                ui.add(egui::Slider::new(&mut self.factor_variation, 0..=1000));
             });
             ui.horizontal(|ui| {
                 ui.label("Target output duration (secs):");
@@ -132,6 +138,7 @@ impl Default for MainApp {
             export_file: "".to_owned(),
             finished_writing_receiver: None,
             factor: 100,
+            factor_variation: 0,
             target_duration_secs: 5.0,
         }
     }
