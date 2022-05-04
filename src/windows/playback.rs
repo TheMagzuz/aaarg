@@ -13,10 +13,9 @@ pub fn show(app: &mut MainApp, ctx: &egui::Context) {
         };
         if stopped {
             if ui.add_enabled(app.selected_file != "" && lock_acquired, egui::Button::new("Play")).clicked() {
-                let params = app.get_aliasing_params();
                 crate::audio::preview_aliasing(
                     &app.selected_file,
-                    &params,
+                    &app.aliasing_params,
                     app.sink.clone()
                 );
             }

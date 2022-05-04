@@ -37,8 +37,7 @@ pub fn show(app: &mut MainApp, ctx: &egui::Context) {
             let button_enabled = !exporting && app.export_file != "" && app.selected_file != "";
             
             if ui.add_enabled(button_enabled, egui::Button::new(exporting_text)).clicked() {
-                let params = app.get_aliasing_params();
-                app.finished_writing_receiver = Some(audio::export_file(&app.selected_file, &app.export_file, &params));
+                app.finished_writing_receiver = Some(audio::export_file(&app.selected_file, &app.export_file, &app.aliasing_params));
             }
         });
     }

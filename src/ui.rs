@@ -19,15 +19,7 @@ pub struct MainApp {
     pub selected_file: String,
     pub export_file: String,
     pub finished_writing_receiver: Option<Receiver<()>>,
-    pub factor: usize,
-    pub factor_variation: usize,
-    pub target_duration_secs: f32,
-}
-
-impl MainApp {
-    pub fn get_aliasing_params(&self) -> AliasingParams {
-        AliasingParams::from_secs(self.target_duration_secs, self.factor, self.factor_variation)
-    }
+    pub aliasing_params: AliasingParams,
 }
 
 impl Default for MainApp {
@@ -40,9 +32,7 @@ impl Default for MainApp {
             selected_file: "".to_owned(),
             export_file: "".to_owned(),
             finished_writing_receiver: None,
-            factor: 100,
-            factor_variation: 0,
-            target_duration_secs: 5.0,
+            aliasing_params: AliasingParams::default(),
         }
     }
 }
