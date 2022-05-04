@@ -9,5 +9,5 @@ edition = "2021"
 rodio = "0.15"
 eframe = "0.17"
 tinyfiledialogs = "3.9"
-libaaarg = { git = "https://github.com/TheMagzuz/libaaarg" }
+libaaarg = { git = "https://github.com/TheMagzuz/libaaarg", version = "0.3" }
 hound = "3.4.0"

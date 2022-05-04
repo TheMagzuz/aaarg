@@ -1138,8 +1138,8 @@ dependencies = [
 
 [[package]]
 name = "libaaarg"
-version = "0.2.0"
-source = "git+https://github.com/TheMagzuz/libaaarg#011ee5e91094079a0a2923b87d9a35970980ae52"
+version = "0.3.0"
+source = "git+https://github.com/TheMagzuz/libaaarg#5b2fc24f77433aaaedbea827ef059de0a21bc676"
 dependencies = [
  "hound",
  "rand",
