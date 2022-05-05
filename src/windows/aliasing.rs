@@ -16,7 +16,7 @@ pub fn show(app: &mut MainApp, ctx: &egui::Context) {
         });
         ui.horizontal(|ui| {
             ui.label("Target output duration (secs):");
-            let mut target_duration_secs = 0.0;
+            let mut target_duration_secs = app.aliasing_params.target_duration.as_secs_f32();
             ui.add(egui::Slider::new(&mut target_duration_secs, 0.1..=150.0));
             app.aliasing_params.target_duration = Duration::from_secs_f32(target_duration_secs);
         });
