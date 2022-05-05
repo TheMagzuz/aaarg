@@ -1139,7 +1139,8 @@ dependencies = [
 [[package]]
 name = "libaaarg"
 version = "0.4.0"
-source = "git+https://github.com/TheMagzuz/libaaarg#cdb70e48c91c6d2d4433b95230be9de3313a0dcb"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "38b1fd581976255ed28f045051cbb9d2591726128ac5d8b3145bdeddd3017fb2"
 dependencies = [
  "hound",
  "rand",
