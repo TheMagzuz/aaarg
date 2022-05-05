@@ -52,6 +52,7 @@ impl epi::App for MainApp {
             windows::aliasing::show(self, ctx);
             windows::playback::show(self, ctx);
             windows::export::show(self, ctx);
+            windows::stutter::show(self, ctx);
         });
     }
 }

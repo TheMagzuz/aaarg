@@ -4,7 +4,7 @@ version = 3
 
 [[package]]
 name = "aaarg"
-version = "0.2.0"
+version = "0.3.0"
 dependencies = [
  "eframe",
  "hound",
@@ -1138,8 +1138,8 @@ dependencies = [
 
 [[package]]
 name = "libaaarg"
-version = "0.3.0"
-source = "git+https://github.com/TheMagzuz/libaaarg#5b2fc24f77433aaaedbea827ef059de0a21bc676"
+version = "0.4.0"
+source = "git+https://github.com/TheMagzuz/libaaarg#cdb70e48c91c6d2d4433b95230be9de3313a0dcb"
 dependencies = [
  "hound",
  "rand",
